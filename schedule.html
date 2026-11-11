@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Расписание занятий · Кампус</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="module" src="js/schedule.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="frame header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/favicon.svg" width="42" height="42" alt="">
+        <span><strong>Кампус</strong><small>Студенческий портал</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Разделы сайта">
+        <a href="index.html"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"></use></svg>Никнеймы</a>
+        <a href="news.html"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#news"></use></svg>Новости</a>
+        <a href="schedule.html" aria-current="page"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"></use></svg>Расписание</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="frame">
+    <section class="hero hero--schedule" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>03</span> Занятия</p>
+        <h1 id="page-title">Расписание занятий</h1>
+        <p class="hero-description">Открой пару, чтобы посмотреть преподавателя, аудиторию и тему занятия.</p>
+      </div>
+      <div class="week-card" id="week-card" tabindex="0" aria-describedby="week-number" hidden>
+        <span class="week-card-label"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"></use></svg> Сегодня</span>
+        <time id="today-date"></time>
+        <span class="week-parity" id="week-parity"></span>
+        <span class="week-number" id="week-number" role="tooltip"></span>
+      </div>
+    </section>
+
+    <form id="schedule-form" class="toolbar toolbar--schedule" role="search" aria-label="Фильтры расписания">
+      <label class="field field--grow">
+        <span>Предмет</span>
+        <span class="input-wrap">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"></use></svg>
+          <input id="schedule-query" name="query" type="search" maxlength="120" autocomplete="off" placeholder="Название предмета" disabled>
+        </span>
+      </label>
+      <label class="field">
+        <span>Курс</span>
+        <select id="schedule-course" name="course" disabled><option value="all">Все курсы</option></select>
+      </label>
+      <label class="field">
+        <span>Группа</span>
+        <select id="schedule-group" name="group" disabled><option value="all">Все группы</option></select>
+      </label>
+      <label class="field">
+        <span>День недели</span>
+        <select id="schedule-day" name="day" disabled><option value="today">Сегодня</option></select>
+      </label>
+      <button class="button button--outline" id="reset-schedule" type="reset" disabled>Сбросить</button>
+    </form>
+
+    <section class="results" aria-labelledby="schedule-heading">
+      <div class="section-bar">
+        <div>
+          <p class="kicker">Пары</p>
+          <h2 id="schedule-heading">Сегодня</h2>
+        </div>
+        <span class="count-pill" id="schedule-count" hidden></span>
+      </div>
+      <p class="status" id="schedule-status" role="status" hidden></p>
+      <div class="schedule-list" id="schedule-list"></div>
+    </section>
+    <noscript>Для расписания нужно включить JavaScript.</noscript>
+  </main>
+</body>
+</html>

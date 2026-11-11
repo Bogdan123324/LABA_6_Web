@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Новости кампуса · Кампус</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="module" src="js/news.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="frame header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/favicon.svg" width="42" height="42" alt="">
+        <span><strong>Кампус</strong><small>Студенческий портал</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Разделы сайта">
+        <a href="index.html"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"></use></svg>Никнеймы</a>
+        <a href="news.html" aria-current="page"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#news"></use></svg>Новости</a>
+        <a href="schedule.html"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"></use></svg>Расписание</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="frame">
+    <section class="hero hero--news" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>02</span> Публикации</p>
+        <h1 id="page-title">Новости кампуса</h1>
+        <p class="hero-description">Встречи, мастерские и события студенческой жизни.</p>
+      </div>
+      <svg class="hero-art" aria-hidden="true"><use href="assets/illustrations.svg#news"></use></svg>
+    </section>
+
+    <form id="news-form" class="toolbar" role="search" aria-label="Поиск новостей">
+      <label class="field field--grow">
+        <span>Поиск по тексту</span>
+        <span class="input-wrap">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"></use></svg>
+          <input id="news-query" name="query" type="search" maxlength="120" autocomplete="off" placeholder="Например, дизайн портфолио">
+        </span>
+      </label>
+      <label class="field">
+        <span>Сортировка</span>
+        <select id="news-sort" name="sort">
+          <option value="date-desc">Сначала новые</option>
+          <option value="date-asc">Сначала старые</option>
+          <option value="name-asc">По заголовку ↑</option>
+          <option value="name-desc">По заголовку ↓</option>
+        </select>
+      </label>
+      <button class="button button--primary" type="submit">Найти</button>
+    </form>
+
+    <section class="results" aria-labelledby="news-heading">
+      <div class="section-bar">
+        <div>
+          <p class="kicker">Лента</p>
+          <h2 id="news-heading">Публикации</h2>
+        </div>
+        <span class="count-pill" id="news-count" hidden></span>
+      </div>
+      <p class="status" id="news-status" role="status" hidden></p>
+      <div class="news-list" id="news-list"></div>
+      <nav class="pagination" id="news-pagination" aria-label="Страницы новостей" hidden></nav>
+    </section>
+
+    <dialog id="news-dialog" class="news-dialog" aria-labelledby="article-title">
+      <div class="dialog-top">
+        <p class="kicker">Кампус · Новости</p>
+        <form method="dialog">
+          <button class="button icon-button" type="submit" aria-label="Закрыть новость" autofocus>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#close"></use></svg>
+          </button>
+        </form>
+      </div>
+      <div class="article-meta" id="article-meta"></div>
+      <h2 id="article-title">Новость</h2>
+      <p class="status" id="article-status" role="status" hidden></p>
+      <div class="article-body" id="article-body"></div>
+    </dialog>
+    <noscript>Для загрузки новостей нужно включить JavaScript.</noscript>
+  </main>
+</body>
+</html>

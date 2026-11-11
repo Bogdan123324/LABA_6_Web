@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Поиск никнеймов · Кампус</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="module" src="js/nicknames.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="frame header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/favicon.svg" width="42" height="42" alt="">
+        <span><strong>Кампус</strong><small>Студенческий портал</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Разделы сайта">
+        <a href="index.html" aria-current="page"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"></use></svg>Никнеймы</a>
+        <a href="news.html"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#news"></use></svg>Новости</a>
+        <a href="schedule.html"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#calendar"></use></svg>Расписание</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="frame">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>01</span> Каталог</p>
+        <h1 id="page-title">Поиск никнеймов</h1>
+        <p class="hero-description">Найди никнейм по одному или нескольким словам и выбери его в списке.</p>
+      </div>
+      <svg class="hero-art" aria-hidden="true"><use href="assets/illustrations.svg#search"></use></svg>
+    </section>
+
+    <form id="nickname-form" class="toolbar" role="search" aria-label="Поиск никнеймов">
+      <label class="field field--grow">
+        <span>Никнейм или категория</span>
+        <span class="input-wrap">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#search"></use></svg>
+          <input id="nickname-query" name="query" type="search" maxlength="120" autocomplete="off" placeholder="Например, pixel fox">
+        </span>
+      </label>
+      <label class="field">
+        <span>Сортировка</span>
+        <select id="nickname-sort" name="sort">
+          <option value="name-asc">По имени ↑</option>
+          <option value="name-desc">По имени ↓</option>
+        </select>
+      </label>
+      <button class="button button--primary" type="submit">Найти</button>
+    </form>
+
+    <section class="results" aria-labelledby="nickname-heading">
+      <div class="section-bar">
+        <div>
+          <p class="kicker">Каталог</p>
+          <h2 id="nickname-heading">Никнеймы</h2>
+        </div>
+        <span class="count-pill" id="nickname-count" hidden></span>
+      </div>
+      <p class="status" id="nickname-status" role="status" hidden></p>
+      <p class="selection" id="nickname-selected" role="status" hidden></p>
+      <ul id="nickname-list" class="nickname-list" aria-label="Найденные никнеймы"></ul>
+      <div class="list-footer" id="nickname-footer" hidden>
+        <button id="load-more" class="button button--outline" type="button">
+          Загрузить ещё
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#down"></use></svg>
+        </button>
+      </div>
+    </section>
+    <noscript>Для поиска нужно включить JavaScript.</noscript>
+  </main>
+</body>
+</html>
